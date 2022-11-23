@@ -3,7 +3,7 @@ const colors = require('colors')
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv").config();
-const port = 5000;
+const port =  5000;
 
 connectDB()
 
@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //instead of use endpoint use / if you hit /api/goals it will look to this file
 app.use("/api/goals", require("./routes/goalRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
 
 //overwrite the default Express error
 app.use(errorHandler);
