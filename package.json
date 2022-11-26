@@ -6,7 +6,12 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
+<<<<<<< Updated upstream
     "client": "npm start --prefix frontend"
+=======
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+>>>>>>> Stashed changes
   },
   "author": "Samir Sharfi",
   "license": "MIT",
@@ -20,6 +25,7 @@
     "mongoose": "^6.7.2"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   }
 }

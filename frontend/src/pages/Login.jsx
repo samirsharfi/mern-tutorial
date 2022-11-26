@@ -1,5 +1,15 @@
+<<<<<<< Updated upstream
 import { useState } from "react";
 import { FaSignInAlt } from "react-icons/fa";
+=======
+import { useState, useEffect } from "react";
+import { FaSignInAlt } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, register, reset } from "../features/auth/authSlice";
+import Spinner from "../components/Spinner";
+>>>>>>> Stashed changes
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -8,6 +18,26 @@ function Login() {
   });
   const { email, password } = formData;
 
+<<<<<<< Updated upstream
+=======
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isSuccess, isError, message } = useSelector(
+    (state) => state.auth
+  );
+  
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      navigate("/");
+    }
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
+>>>>>>> Stashed changes
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -17,7 +47,22 @@ function Login() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+<<<<<<< Updated upstream
   };
+=======
+
+      const userData = {
+        email,
+        password,
+      };
+      dispatch(login(userData));
+  };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+>>>>>>> Stashed changes
   return (
     <section className="heading">
       <h1>
