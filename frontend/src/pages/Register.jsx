@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-import { useState } from "react";
-import { FaUser } from "react-icons/fa";
-=======
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +5,6 @@ import { toast } from "react-toastify";
 import { FaUser } from "react-icons/fa";
 import { register, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
->>>>>>> Stashed changes
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -20,8 +15,6 @@ function Register() {
   });
   const { name, email, password, password2 } = formData;
 
-<<<<<<< Updated upstream
-=======
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -39,7 +32,6 @@ function Register() {
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
->>>>>>> Stashed changes
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -49,9 +41,6 @@ function Register() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-<<<<<<< Updated upstream
-  };
-=======
     if (password !== password2) {
       toast.error("Password do not match");
     } else {
@@ -67,7 +56,6 @@ function Register() {
   if (isLoading) {
     return <Spinner />;
   }
->>>>>>> Stashed changes
   return (
     <section className="heading">
       <h1>
